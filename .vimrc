@@ -9,10 +9,10 @@ Plugin 'VundleVim/Vundle.vim' " Vundle manages Vundle
 "Plugin 'hdima/python-syntax'
 Plugin 'sjl/badwolf'
 "Plugin 'Valloric/YouCompleteMe' " Cannot get vim to compile with Python
-Plugin 'lervag/vimtex'          " modern LaTeX plugin
+"Plugin 'lervag/vimtex'          " modern LaTeX plugin
 Plugin 'jiangmiao/auto-pairs'   " for autocompleting braces and brackets
 Plugin 'derekwyatt/vim-scala'   " for Scala programming
-Plugin 'Shougo/neocomplete.vim' " autocomplete that works rather well without Python
+"Plugin 'Shougo/neocomplete.vim' " autocomplete that works rather well without Python
 call vundle#end()
 
 " Despite the earlier requirement for Vundle... (?)
