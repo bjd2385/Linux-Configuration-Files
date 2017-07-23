@@ -12,7 +12,7 @@ Plugin 'sjl/badwolf'
 "Plugin 'lervag/vimtex'          " modern LaTeX plugin
 Plugin 'jiangmiao/auto-pairs'   " for autocompleting braces and brackets
 Plugin 'derekwyatt/vim-scala'   " for Scala programming
-"Plugin 'Shougo/neocomplete.vim' " autocomplete that works rather well without Python
+Plugin 'Shougo/neocomplete.vim' " autocomplete that works rather well without Python
 call vundle#end()
 
 " Despite the earlier requirement for Vundle... (?)
@@ -30,6 +30,7 @@ syntax on
 
 set tabstop=4       " set tabs to 4 spaces
 set softtabstop=4   " number of spaces in tab when editing
+set shiftwidth=4    " reindent ops
 set expandtab       " convert tabs to spaces
 set number          " line numbering
 
@@ -52,7 +53,7 @@ colorscheme badwolf " https://github.com/sjl/badwolf/
 "set autoindent      " indent automagically on enter
 
 "so ./test/_setup.vim
-let delimitMate_expand_cr = 1
+"let delimitMate_expand_cr = 1
 "filetype indent plugin on
 
 set nocompatible
@@ -128,3 +129,8 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+noremap ; l
+noremap l k
+noremap k j
+noremap j h
