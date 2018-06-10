@@ -28,7 +28,7 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -79,18 +79,22 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -lAX'
-alias la='ls -AX'
-alias l='ls -lX'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -l'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+#alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -112,14 +116,43 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# added by Anaconda3 4.4.0 installer
+/home/brandon/Downloads/tmux-2.7/tmux
+
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
+# added by Anaconda3 installer
 export PATH="/home/brandon/anaconda3/bin:$PATH"
-export PATH=~/.rakudobrew/bin:$PATH
+eval 
+            function fuck () {
+                TF_PYTHONIOENCODING=$PYTHONIOENCODING;
+                export TF_SHELL=bash;
+                export TF_ALIAS=fuck;
+                export TF_SHELL_ALIASES=$(alias);
+                export TF_HISTORY=$(fc -ln -10);
+                export PYTHONIOENCODING=utf-8;
+                TF_CMD=$(
+                    thefuck THEFUCK_ARGUMENT_PLACEHOLDER "$@"
+                ) && eval "$TF_CMD";
+                unset TF_HISTORY;
+                export PYTHONIOENCODING="$TF_PYTHONIOENCODING";
+                history -s "$TF_CMD";
+            }
+        
 
-if [ -n "$DISPLAY" ]
-then
-    xset b off
-fi
+eval $(thefuck --alias)
 
-alias pbcopy='xsel --clipboard --input'
-alias pbpaste='xsel --clipboard --output'
+function py()
+{
+    FILE="$1"
+    OUTPUT=`mypy --strict "$FILE"`
+    len=$(printf "%s" "$OUTPUT" | wc -l)
+
+    if [ len != 0 ]; then
+        echo "$OUTPUT"
+    else
+        python "$FILE"
+    fi
+}
+
+export PATH="$HOME/.cabal/bin:$PATH"
