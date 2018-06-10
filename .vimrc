@@ -1,6 +1,6 @@
 " My vimrc
 " Brandon Doyle
-" April 21, 2018
+" June 10, 2018
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -22,6 +22,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tinco/haskell.vim'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'aperezdc/vim-template'
+Plugin 'urso/haskell_syntax.vim'
 call vundle#end()
 
 filetype plugin indent on
