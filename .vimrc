@@ -1,6 +1,6 @@
 " My vimrc
 " Brandon Doyle
-" June 10, 2018
+" June 18, 2018
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -23,6 +23,8 @@ Plugin 'tinco/haskell.vim'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'aperezdc/vim-template'
 Plugin 'urso/haskell_syntax.vim'
+Plugin 'PProvost/vim-ps1.git'   " Powershell syntax 
+Plugin 'Yggdroot/indentLine'
 call vundle#end()
 
 filetype plugin indent on
