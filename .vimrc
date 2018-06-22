@@ -1,6 +1,6 @@
 " My vimrc
 " Brandon Doyle
-" June 18, 2018
+" April 21, 2018
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -25,6 +25,7 @@ Plugin 'aperezdc/vim-template'
 Plugin 'urso/haskell_syntax.vim'
 Plugin 'PProvost/vim-ps1.git'   " Powershell syntax 
 Plugin 'Yggdroot/indentLine'
+Plugin 'fsharp/vim-fsharp'
 call vundle#end()
 
 filetype plugin indent on
@@ -68,6 +69,7 @@ map :hsheader :0r ~/.vim/hs_header.txt
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
 au FileType haskell setl sw=2 sts=2 et " Use 2 spaces for Haskell source files
+au FileType tex setl sw=2 sts=2 et " Use 2 spaces for LaTeX source files
 
 colorscheme badwolf
 
