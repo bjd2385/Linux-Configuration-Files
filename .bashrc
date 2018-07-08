@@ -156,3 +156,10 @@ function py()
 }
 
 export PATH="$HOME/.cabal/bin:$PATH"
+
+alias prm="/home/brandon/clones/prm/prm.sh"
+export PATH=/home/brandon/bin:/home/brandon/.local/bin:/home/brandon/.cabal/bin:/home/brandon/anaconda3/bin:/home/brandon/bin:/home/brandon/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-10-oracle/bin:/usr/lib/jvm/java-10-oracle/db/bin:/usr/local/go/bin:/home/brandon/go/bin/gdrive
+export GOPATH=/home/brandon/go
+
+# Disable <Ctrl-S> and <Ctrl-Q>
+stty -ixon
