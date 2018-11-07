@@ -1,0 +1,14 @@
+xterm%facename: xft:monospace:pixelsize=14
+
+xterm*background:   black
+xterm*foreground:   white
+
+xterm*font:     *-*-*-*-*-14-*
+
+! disable bold font faces, instead make text light blue.
+XTerm.vt100.colorBDMode: true
+XTerm.vt100.colorBD: rgb:82/a4/d3
+! disable underlined text, instead make it white.
+XTerm.vt100.colorULMode: true
+XTerm.vt100.colorUL: rgb:e4/e4/e4
+! similarly use colorIT for italics
